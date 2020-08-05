@@ -144,6 +144,18 @@ $(function(){
             $(document).on('mouseenter','.left .form-group',function(){
                 $(this).find('input').focus();
             })
+            $(document).on('click','.search-btn',function(){
+                var val = $(this).parent().siblings('.search-input').val();
+                $('main .left').find('.item').each(function(){
+
+                    $(this).find('.form-group .btn').each(function(){
+                        $(this).removeClass('active')
+                        if($(this).data('name') == val){
+                            $(this).addClass('active')
+                        }
+                    })
+                })
+            })
             $(document).on('input','.left .form-group input',function(){
                 var val = $(this).val();
                 var label = $(this).closest('.item').find('.form-label input').val();

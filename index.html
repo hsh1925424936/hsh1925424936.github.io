@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>
-            毅道果业订单统计情况
+            毅道果业订单统计
             <p>
                 <button type="button" class="btn btn-success btn-export" data-toggle="modal" data-target="#myModal">导出数据</button>
                 <button type="button" class="btn btn-info btn-import" data-toggle="modal" data-target="#myModal1">导入数据</button>
@@ -25,6 +25,12 @@
         </ul>
         <div class="total">
 
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control search-input" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary search-btn" type="button">Go!</button>
+            </span>
         </div>
     </header>
     <main>
@@ -100,7 +106,6 @@
             <span style="margin-left:30px;color:#f50000;">{{item.label}}：{{item.content.length}}</span>
             {{/each}}
         </h3>
-        
     </script>
     <script id="cont" type="text/html">
 
