@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>
+            毅道果业订单统计情况
+            <p>
+                <button type="button" class="btn btn-success btn-export" data-toggle="modal" data-target="#myModal">导出数据</button>
+                <button type="button" class="btn btn-info btn-import" data-toggle="modal" data-target="#myModal1">导入数据</button>
+                <button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target=".bs-example-modal-sm">删除数据</button>
+            </p>
+        </h1>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="javascript:;">群1</a></li>
+            <li role="presentation"><a href="javascript:;">群2</a></li>
+            <li role="presentation"><a href="javascript:;">群3</a></li>
+        </ul>
+        <div class="total">
+
+        </div>
+    </header>
+    <main>
+        
+    </main>
+    <div class="footer">
+        <button type="button" class="btn btn-primary btn-lg add-item">添加项目</button>
+        <button type="button" class="btn btn-primary btn-lg save-btn">保存名单</button>
+       
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">导出数据</h4>
+            </div>
+            <div class="modal-body">
+                <!-- <div class="form-group"> -->
+                    <label for="">请复制下面的内容：</label>
+                    <textarea name="" id="export-data" cols="30" rows="10" class="form-control"></textarea>
+                <!-- </div> -->
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">导入数据</h4>
+            </div>
+            <div class="modal-body">
+                <label for="">将复制的数据粘贴到下面，点击确定按钮</label>
+              <textarea name="" id="import-data" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-primary import-sure">确认</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">删除数据</h4>
+              </div>
+            <div class="modal-body">
+                <label>确认删除所有数据？删除后不可恢复！</label>
+            </div>
+           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary delete-sure" data-dismiss="modal">确认</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    <script id="total" type="text/html">
+        <h3>
+            {{title}}的统计情况：
+            {{each res item}}
+            <span style="margin-left:30px;color:#f50000;">{{item.label}}：{{item.content.length}}</span>
+            {{/each}}
+        </h3>
+        
+    </script>
+    <script id="cont" type="text/html">
+
+        <div class="left">
+            {{each res item i}}
+            {{if item.label}}
+            <div class="item">
+                <label class="form-label">
+                    <input type="text" class="form-control" value="{{item.label}}" placeholder="请输入名称">
+                </label>
+                <div class="form-group">
+                    {{if item.content.length}}
+                    {{each item.content  con i}}
+                    <a href="javascript:;" class="btn btn-default btn-xs" data-order="{{con.order}}"  data-name="{{con.value}}"><span>{{con.order}}.</span>{{con.value}}<i class="glyphicon glyphicon-remove delete-name"></i></a>
+                    {{/each}}
+                    {{/if}}
+                    <input type="text" class="form-control form-control-text" id="{{item.label}}" placeholder="请复制粘贴名单到此处">
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+        <div class="right">
+            <div class="item">
+                <label class="form-label">
+                    <a href="javascript:;" class="btn btn-warning toggle-order">去掉序号</a>
+                    <!-- <a href="javascript:;" class="btn btn-primary copy" style="margin-top:20px;">复制</a> -->
+                </label>
+                <div class="form-group" contenteditable="true">
+                    <!-- <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea> -->
+                </div>
+            </div>
+           
+        </div>
+    </script>
+    <script id="tabList" type="text/html">
+        {{each res item i}}
+        <li role="presentation" class="{{if i==0}}active{{/if}}">
+            <a href="javascript:;">{{item}}</a>
+            <!-- <input style="width:80px;" type="text" class="form-control tab-input hidden" value="{{item}}"> -->
+        </li>
+        {{/each}}
+    </script>
+    <script src="jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="template.js"></script>
+    <script src="pako.min.js"></script>
+    <script src="base64.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

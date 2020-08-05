@@ -1,0 +1,159 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+header{
+    position: relative;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    padding: 10px 0;
+}
+header h1{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 5px #aaa;
+    font-weight: bold;
+    font-family: '微软雅黑';
+    padding: 0;
+    margin: 0;
+}
+header h1 p{
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+header .modify-name{
+    position: absolute;
+    top: 0;
+    left:0;
+}
+header .total h3{
+    padding-left: 20px;
+}
+.nav-tabs{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+main{
+    display: flex;
+    width: 100%;
+    padding: 50px 20px;
+}
+.left{
+    width: calc(100% - 350px);
+    /* height: 200px; */
+    /* flex-grow: 1; */
+}
+.item{
+    width: 100%;
+    height: 100%;
+    height: 300px;
+    display: flex;
+    margin-top: 20px;
+}
+.form-label{
+    width: 110px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 4px;
+    word-break: break-all;
+}
+.form-label .form-control{
+    text-align: right;
+}
+.edit{
+    display: block;
+    width: 100%;
+    text-align: right;
+    
+}
+.form-group{
+    width: calc(100% - 100px);
+    height: 100%;
+}
+
+.add-btn{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.left .form-group{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border:solid 1px #ccc;
+    border-radius: 2px;
+    padding: 10px;
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+.left .form-group .btn{
+    height:22px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.left .form-group .btn i{
+    color: #337ab7;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+}
+.left .form-group .form-control{
+    flex-grow: 1;
+    border: solid 1px #ccc;
+    border: none;
+    outline: none;
+    min-width: 100px;
+    box-shadow: none;
+    background: none;
+    width: auto;
+    height: 22px;
+}
+
+.right{
+    width: 350px;
+    max-height: 640px;
+    /* overflow: auto; */
+    /* height: 100%; */
+}
+.right .item{
+    width: 100%;
+    height:100%;
+    margin: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.right .form-group{
+    width: 100%;
+    height: 100%;
+    border: solid 1px #ccc;
+    padding: 10px 5px;
+    overflow: auto;
+    border-radius: 2px;
+    /* cursor: copy; */
+    white-space: nowrap;
+}
+.right .form-group .order{
+    display: inline-block;
+    min-width: 30px;
+    text-align: right;
+}
+.right .form-group .text{
+    display: inline-block;
+    min-width: 120px;
+}
+
+.footer{
+    text-align: center;
+}
+.footer .btn{
+    margin-left: 20px;
+}
