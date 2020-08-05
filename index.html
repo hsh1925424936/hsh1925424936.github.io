@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/lrtk.css">
+    <link rel="stylesheet" href="css/index.css">
+
 
     <title>Document</title>
 </head>
 <body>
+    <div id="botAgregar"></div>
     <header>
         <h1>
             毅道果业订单统计
@@ -149,14 +152,27 @@
         </li>
         {{/each}}
     </script>
-    <script src="jquery.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="template.js"></script>
-    <script src="pako.min.js"></script>
-    <script src="base64.min.js"></script>
-    <script src="index.js"></script>
-    <script>
-
+    <script src="js/template.js"></script>
+    <script src="js/pako.min.js"></script>
+    <script src="js/base64.min.js"></script>
+    <script type="text/javascript" src="js/yezi.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript">
+        $.AutomLeafStart({
+            leafsfolder:"images/",
+            howmanyimgsare:8,
+            initialleafs:10,
+            maxYposition:20,
+            multiplyclick:true,
+            multiplynumber:2,
+            infinite:true,
+            fallingsequence:6000
+        });
+        $("#botAgregar").on("click",function(){
+            $.AutomLeafAdd({leafsfolder:"images/",add:8,})
+        });
     </script>
 </body>
 </html>

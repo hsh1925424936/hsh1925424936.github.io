@@ -2,6 +2,7 @@ html,body{
     width: 100%;
     height: 100%;
     background: #ddd;
+    font-family: '微软雅黑';
 }
 header{
     position: relative;
@@ -47,7 +48,7 @@ header .input-group{
     position: absolute;
     bottom: 0;
     right: 10px;
-    width: 200px;
+    width: 255px;
 }
 .nav-tabs{
     /* margin-top: 10px; */
