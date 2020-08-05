@@ -269,7 +269,8 @@ $(function(){
         },
         renderTab:function(){
             // 修改群名称
-            var arr = ['奥体东','郁金香','安德门','集庆门','雨润','苜蓿园','仙鹤门','下马坊','经天路','汉中路','龙眠'];
+            var arr = ['奥体','郁金香','安德门','集庆门','雨润','苜蓿园','仙鹤门','下马坊','经天路','汉中路','龙眠'];
+            
             // var data = JSON.parse(localStorage.getItem('tabList'));
             $('.nav').html(template('tabList',{res:arr}));
         }
